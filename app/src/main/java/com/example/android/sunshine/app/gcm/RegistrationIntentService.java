@@ -75,7 +75,8 @@ public class RegistrationIntentService extends IntentService {
      * That way you can see the value in logcat, and note it for future use in the website.
      *
      * @param token The new token.
-     */
+    eIXKrCA1-QY:APA91bEl5yrIBsGCVeYOoFMg4EHZQftBdNBAKLBU6P3WAVT13eXY8_JvZOXTe3VyVH7ueLkE08tyAMzRdEkt9Xwb6rsoh8hJHwFk3g1-mp1Z68OM2GcenSyt7yRWrU9gj_6UtmBSn1Z5
+      */
     private void sendRegistrationToServer(String token) {
         Log.i(TAG, "GCM Registration Token: " + token);
     }

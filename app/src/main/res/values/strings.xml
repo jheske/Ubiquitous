@@ -231,9 +231,9 @@
 
     <!-- Used to form a severe weather alert that reads "Heads up: <weather> in <location>!" -->
     <string name="gcm_weather_alert">Heads up: %1$s in %2$s!</string>
-    // TODO: Get the SenderID from the Developer Console
-    <string name="gcm_defaultSenderId" translatable="false"></string>
+    <!-- TODO: Get the SenderID from the Developer Console  -->
+ <!--   <string name="gcm_defaultSenderId" translatable="false"></string> -->
     <!-- For Google Places API Attributions -->
     <string name="attribution_text">Powered by Google</string>
-
+    <string name="gcm_defaultSenderId">eIXKrCA1-QY:APA91bEl5yrIBsGCVeYOoFMg4EHZQftBdNBAKLBU6P3WAVT13eXY8_JvZOXTe3VyVH7ueLkE08tyAMzRdEkt9Xwb6rsoh8hJHwFk3g1-mp1Z68OM2GcenSyt7yRWrU9gj_6UtmBSn1Z5</string>
 </resources>
