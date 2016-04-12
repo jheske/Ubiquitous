@@ -91,6 +91,7 @@ public class SunshineWatchFaceService extends CanvasWatchFaceService {
         Paint mBackgroundPaint;
         Paint mTextPaint;
         Paint mTextDatePaint;
+        Paint mWeatherDividerPaint;
         Paint mTextDateAmbientPaint;
         Paint mTextTempHighPaint;
         Paint mTextTempLowPaint;
@@ -146,6 +147,7 @@ public class SunshineWatchFaceService extends CanvasWatchFaceService {
             mYOffsetTime = resources.getDimension(R.dimen.digital_time_y_offset);
             mYOffsetDate = resources.getDimension(R.dimen.digital_date_y_offset);
             mYOffsetDivider = resources.getDimension(R.dimen.digital_divider_y_offset);
+            mYOffsetWeather = resources.getDimension(R.dimen.digital_weather_y_offset);
 
             mLineHeight = resources.getDimension(R.dimen.digital_line_height);
 
@@ -156,6 +158,11 @@ public class SunshineWatchFaceService extends CanvasWatchFaceService {
 
             mTextDatePaint = new Paint();
             mTextDatePaint = createTextPaint(ContextCompat.getColor(context,R.color.primary_light));
+
+
+            mWeatherDividerPaint = new Paint();
+            mWeatherDividerPaint = createTextPaint(ContextCompat.getColor(context,R.color.primary_weather));
+
 
             mTextDateAmbientPaint = new Paint();
             mTextDateAmbientPaint = createTextPaint(Color.WHITE);
@@ -317,13 +324,13 @@ public class SunshineWatchFaceService extends CanvasWatchFaceService {
             canvas.drawText(dateText, bounds.centerX() - xOffsetDate, mYOffsetDate, datePaint);
 
             // Draw a line to separate date and time from weather elements
-            canvas.drawLine(bounds.centerX() - 20, mYOffsetDivider, bounds.centerX() + 20, mYOffsetDivider, datePaint);
+//          canvas.drawLine(bounds.centerX() - 20, mYOffsetDivider, bounds.centerX() + 20, mYOffsetDivider, datePaint);
 
             // Draw high and low temp if we have it
             if (mHighTemp != null && mLowTemp != null) {
                 // Draw a line to separate date and time from weather elements
-                canvas.drawLine(bounds.centerX() - 20, mYOffsetDivider, bounds.centerX() + 20, mYOffsetDivider, datePaint);
-
+                canvas.drawLine(bounds.centerX() - 20, mYOffsetDivider, bounds.centerX() + 20,
+                        mYOffsetDivider, mWeatherDividerPaint);
                 float highTextLen = mTextTempHighPaint.measureText(mHighTemp);
 
                 if (mAmbient) {
@@ -429,6 +436,7 @@ public class SunshineWatchFaceService extends CanvasWatchFaceService {
 
                         if (dataMap.containsKey(KEY_WEATHER_ID)) {
                             int weatherId = dataMap.getInt(KEY_WEATHER_ID);
+                            Log.d(TAG, "WeatherId = " + weatherId);
                             Drawable b = getResources().getDrawable(Utility.getIconResourceForWeatherCondition(weatherId));
                             Bitmap icon = ((BitmapDrawable) b).getBitmap();
                             float scaledWidth = (mTextTempHighPaint.getTextSize() / icon.getHeight()) * icon.getWidth();
