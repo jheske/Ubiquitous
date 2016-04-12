@@ -47,12 +47,16 @@ public class RegistrationIntentService extends IntentService {
                 InstanceID instanceID = InstanceID.getInstance(this);
 
                 // TODO: gcm_default sender ID comes from the API console
-                String senderId = getString(R.string.gcm_SenderId);
+                String senderId = getString(R.string.gcm_defaultSenderId);
                 if ( senderId.length() != 0 ) {
                     String token = instanceID.getToken(senderId,
                             GoogleCloudMessaging.INSTANCE_ID_SCOPE, null);
+                    Log.d(TAG, "Sending token registration to server");
                     sendRegistrationToServer(token);
                 }
+                else
+                  Log.d(TAG, "Not sending empty token registration to server");
+
 
                 // You should store a boolean that indicates whether the generated token has been
                 // sent to your server. If the boolean is false, send the token to your server,
@@ -74,7 +78,9 @@ public class RegistrationIntentService extends IntentService {
      * That way you can see the value in logcat, and note it for future use in the website.
      *
      * @param token The new token.
-    eIXKrCA1-QY:APA91bEl5yrIBsGCVeYOoFMg4EHZQftBdNBAKLBU6P3WAVT13eXY8_JvZOXTe3VyVH7ueLkE08tyAMzRdEkt9Xwb6rsoh8hJHwFk3g1-mp1Z68OM2GcenSyt7yRWrU9gj_6UtmBSn1Z5
+     *
+     *
+    cfPg-Klj_Ww:APA91bHgpre-HD5bDR6o25dAVoWzshPag1D0aMAmMhxAyypAaqJriqiy1JYNSPMtgZhQ_399kqhDraJ534JQ5BaB3B2zlDy49MAR8cf3ZyF8QSS6a2GI_iSiFO_tJYweSSKKuB_boP9p
       */
     private void sendRegistrationToServer(String token) {
         Log.i(TAG, "GCM Registration Token: " + token);

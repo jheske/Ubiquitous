@@ -104,10 +104,15 @@ public class MainActivity extends AppCompatActivity implements ForecastFragment.
                     PreferenceManager.getDefaultSharedPreferences(this);
             boolean sentToken = sharedPreferences.getBoolean(SENT_TOKEN_TO_SERVER, false);
             if (!sentToken) {
+                Log.i(LOG_TAG, "Calling RegistrationIntentService to retrieve token");
                 Intent intent = new Intent(this, RegistrationIntentService.class);
                 startService(intent);
-            }
+            } else
+                Log.i(LOG_TAG, "Token already sent, not retrieving");
         }
+        else
+            Log.i(LOG_TAG, "Play services not available");
+
     }
 
     @Override
