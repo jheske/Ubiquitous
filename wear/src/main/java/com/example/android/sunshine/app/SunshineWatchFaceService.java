@@ -455,9 +455,9 @@ public class SunshineWatchFaceService extends CanvasWatchFaceService {
                         @Override
                         public void onResult(DataApi.DataItemResult dataItemResult) {
                             if (!dataItemResult.getStatus().isSuccess()) {
-                                Log.d(TAG, "Failed asking phone for weather data");
+                                Log.i(TAG, "Failed asking phone for weather data");
                             } else {
-                                Log.d(TAG, "Successfully asked for weather data");
+                                Log.i(TAG, "Successfully asked for weather data");
                             }
                         }
                     });

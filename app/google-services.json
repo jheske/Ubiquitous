@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_id": "sunshine-1258",
-    "project_number": "185572122103",
-    "name": "Sunshine"
+    "project_id": "sunshine-jheske",
+    "project_number": "807074537577",
+    "name": "sunshine-jheske"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:185572122103:android:83b792e26f07bf18",
+        "mobilesdk_app_id": "1:807074537577:android:83b792e26f07bf18",
         "client_id": "android:com.example.android.sunshine.app",
         "client_type": 1,
         "android_client_info": {
